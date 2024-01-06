@@ -1,0 +1,16 @@
+* {
+    background-color: black;
+    color: white;
+    margin: 20px;
+}
+
+h1, button, h2, h3 {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+#genTheory {
+    cursor: pointer;
+    margin: auto;
+}
