@@ -4,10 +4,31 @@
     margin: 20px;
 }
 
-h1, button, h2, h3, h4, a {
+h1, button, h2, h3, h4, div {
     display: flex;
     justify-content: center;
     margin: 20px;
+}
+
+#position0 {
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+
+#position1 {
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+
+#smaller {
+    transform: scale(0.5);
+}
+
+#luck1000000 {
+    margin: 0;
+    
 }
 
 #genTheory {

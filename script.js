@@ -3795,9 +3795,149 @@ const gods = [
 "Weeping Lady of Lys"
 ]
 
+const swords = [
+    'Blackfyre',
+    'Brightroar',
+    'Dark Sister',
+    'Dawn',
+    'Hearteater',
+    'Heartsbane',
+    'Ice',
+    'Lady Forlorn',
+    'Lightbringer',
+    `Lion's Tooth`,
+    'Longclaw',
+    'Needle',
+    'Nightfall',
+    'Oathkeeper',
+    `Widow's Wail`
+]
+
+const wondersOfTheWorld = [
+    'The Wall',
+    'The Valyrian roads',
+    'The Titan of Braavos',
+    'The triple walls of Qarth',
+    'The three bells of Norvos',
+    'The Long Bridge of Volantis',
+    'The Palace With a Thousand Rooms in Sarnath',
+    'The Great Pyramid of Ghis'
+]
+
+const mentalDisorders = [
+    `Separation anxiety disorder`,
+`Specific phobia`,
+`Social anxiety disorder`,
+`Panic disorder`,
+`Agoraphobia`,
+`Generalized anxiety disorder`,
+`Selective mutism`,
+`Dissociative identity disorder`,
+`Dissociative amnesia (psychogenic amnesia)`,
+`Depersonalization-derealization disorder`,
+`Dissociative fugue`,
+`Dissociative neurological symptom disorder (this includes Psychogenic non-epileptic seizures)`,
+`Other specified dissociative disorder (OSDD)`,
+`Unspecified dissociative disorder`,
+`Ganser syndrome`,
+`Disruptive mood dysregulation disorder`,
+`Major depressive disorder`,
+`Dysthymia`,
+`Premenstrual dysphoric disorder`,
+`Psychotic depression`,
+`Seasonal affective disorder (SAD)`,
+`Atypical depression`,
+`Postpartum depression`,
+`Pervasive refusal syndrome`,
+`Unspecified depressive disorder`,
+`Reactive attachment disorder`,
+`Disinhibited social engagement disorder`,
+`Post-traumatic stress disorder (PTSD)`,
+`Post-traumatic embitterment disorder (PTED)`,
+`False memory syndrome`,
+`Acute stress disorder`,
+`Adjustment disorder`,
+`Complex post-traumatic stress disorder (C-PTSD)`,
+`Prolonged grief disorder`,
+`Intellectual disability`,
+`Language disorder`,
+`Sensory processing disorder`,
+`Speech sound disorder`,
+`Stuttering`,
+`Social communication disorder`,
+`Pervasive developmental disorder`,
+`Auditory processing disorder`,
+`Communication disorder`,
+`Autism spectrum disorder (formally a category that included Asperger syndrome, Classic autism and Rett syndrome)`,
+`Attention deficit hyperactivity disorder (ADHD)`,
+`Developmental coordination disorder`,
+`Tourette syndrome`,
+`Down syndrome`,
+`Tic disorder`,
+`Dyslexia`,
+`Dyscalculia`,
+`Dysgraphia`,
+`Nonverbal learning Disorder (NVLD, NLD)`,
+`Insomnia (including chronic insomnia and short-term insomnia)`,
+`Hypersomnia`,
+`Idiopathic hypersomnia`,
+`Kleine–Levin syndrome`,
+`Insufficient sleep syndrome`,
+`Narcolepsy`,
+`Restless legs syndrome`,
+`Sleep apnea`,
+`Night terrors (sleep terrors)`,
+`Exploding head syndrome`,
+`Nightmare disorder`,
+`Rapid eye movement sleep behavior disorder`,
+`Confusional arousals`,
+`Sleepwalking`,
+`Hypnagogic hallucinations`,
+`Hypnopompic hallucinations`,
+`Circadian rhythm sleep disorder`,
+`Delayed sleep phase disorder`,
+`Advanced sleep phase disorder`,
+`Irregular sleep–wake rhythm`,
+`Non-24-hour sleep–wake disorder`,
+`Circadian rhythm sleep-wake disorder caused by irregular work shifts`,
+`Jet lag`,
+`Delirium`,
+`Dementia`,
+`Traumatic brain injury`,
+`HIV-associated neurocognitive disorder (HAND)`,
+`Amnesia`,
+`Chronic traumatic encephalopathy`,
+`Agnosia`,
+`Substance-induced disorder (Substance-induced psychosis, Substance-induced delirium, Substance-induced mood disorder)`,
+`Substance intoxication`,
+`Substance withdrawal`,
+`Substance dependence`,
+`Alcohol use disorder`,
+`Alcoholic hallucinosis`,
+`Alcohol withdrawal`,
+`Delusional disorder`,
+`Schizophrenia`,
+`Schizoaffective disorder`,
+`Schizophreniform disorder`,
+`Brief psychotic disorder`,
+`Obsessive–compulsive disorder (OCD)`,
+`Body dysmorphic disorder`,
+`Body integrity dysphoria`,
+`Compulsive hoarding`,
+`Trichotillomania`,
+`Excoriation disorder (Skin picking disorder)`,
+`Body-focused repetitive behavior disorder`,
+`Olfactory reference syndrome`,
+`Primarily obsessional obsessive-compulsive disorder`,
+`Hoarding disorder`,
+`Gender dysphoria`
+]
+
 const createTheory = () => {
+    document.getElementById('luck1000000').innerHTML = '';
     document.getElementById('theory').innerHTML = "";
-    const conditionNumber = Math.floor(Math.random() * 50) + 1;
+    const conditionNumber = Math.floor(Math.random() * 75) + 1;
+    const conditionNumbers = Math.floor(Math.random() * 1000000) + 1;
     
     const getRandomCharacter = () => characters[Math.floor(Math.random() * characters.length)];
 
@@ -3898,9 +4038,75 @@ const createTheory = () => {
     } else if (conditionNumber === 48) {
         document.getElementById('theory').innerHTML = `${getRandomCharacter()} is dead`;
     } else if (conditionNumber === 49) {
-        document.getElementById('theory').innerHTML = `${getRandomCharacter()} has Dark Sister`;
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} has ${swords[Math.floor(Math.random() * swords.length)]}`;
     } else if (conditionNumber === 50) {
         document.getElementById('theory').innerHTML = `${getRandomCharacter()} will rape ${getRandomCharacter()}`;
+    } else if (conditionNumber === 51) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} caused Robert's Rebellion`;
+    } else if (conditionNumber === 52) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} will go to ${wondersOfTheWorld[Math.floor(Math.random() * wondersOfTheWorld.length)]}`;
+    } else if (conditionNumber === 53) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} will die at ${wondersOfTheWorld[Math.floor(Math.random() * wondersOfTheWorld.length)]}`;
+    } else if (conditionNumber === 54) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is a child of the forest`;
+    } else if (conditionNumber === 55) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} x ${getRandomCharacter()}`;
+    } else if (conditionNumber === 56) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} will sit the iron throne`;
+    } else if (conditionNumber === 57) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} will be burned alive`;
+    } else if (conditionNumber === 58) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} will love ${getRandomCharacter()}`;
+    } else if (conditionNumber === 59) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()}'s Master Plan`;
+    } else if (conditionNumber === 60) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is the Sailor's Wife`;
+    } else if (conditionNumber === 61) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} has ${mentalDisorders[Math.floor(Math.random() * mentalDisorders.length)]}`;
+    } else if (conditionNumber === 62) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is a woman`;
+    } else if (conditionNumber === 63) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is a man`;
+    } else if (conditionNumber === 64) {
+        document.getElementById('theory').innerHTML = `${swords[Math.floor(Math.random() * swords.length)]} is ${swords[Math.floor(Math.random() * swords.length)]}`;
+    } else if (conditionNumber === 65) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} + ${getRandomCharacter()} = ${getRandomCharacter()} + ${getRandomCharacter()}`;
+    } else if (conditionNumber === 66) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is an Other`;
+    } else if (conditionNumber === 67) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} used his powers to impregnate ${getRandomCharacter()} in the past`;
+    } else if (conditionNumber === 68) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} + an Other = ${getRandomCharacter()}`;
+    } else if (conditionNumber === 69) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is a Pedophile`;
+    } else if (conditionNumber === 70) {
+        document.getElementById('theory').innerHTML = `Un${getRandomCharacter()}`;
+    } else if (conditionNumber === 71) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()}=${getRandomCharacter()}=${getRandomCharacter()}=${getRandomCharacter()}=${getRandomCharacter()}=${getRandomCharacter()}`;
+    } else if (conditionNumber === 72) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is a merling`;
+    } else if (conditionNumber === 73) {
+        document.getElementById('theory').innerHTML = `Ser Robert Strong has ${getRandomCharacter()}'s head`;
+    } else if (conditionNumber === 74) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is the Night's King`;
+    } else if (conditionNumber === 74) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} and ${getRandomCharacter()} are sibling`;
+    }
+
+    if (conditionNumbers === 1000000) {
+        document.getElementById('theory').innerHTML = `You've suffered enough :/ Take a break.`;
+        const funnimages = Math.floor(Math.random() * 5) + 1;
+        if (funnimages === 1) {
+            document.getElementById('luck1000000').innerHTML = `<img src="images/5d94fdbe-161b-4d4b-b197-c06ecc12405e.jpg" alt="cute" id="smaller">`
+        } else if (funnimages === 2) {
+            document.getElementById('luck1000000').innerHTML = `<img src="images/389cd3ce-fd37-4020-99f9-2b3e77246a6d.jpg" alt="cute" id="smaller">`
+        } else if (funnimages === 3) {
+            document.getElementById('luck1000000').innerHTML = `<img src="images/9188de92-5733-4811-beff-f255bf0c6dab.jpg" alt="cute" id="smaller">`
+        } else if (funnimages === 4) {
+            document.getElementById('luck1000000').innerHTML = `<img src="images/be6d695c-6d2b-45bb-969e-9be9c0424c78.jpg" alt="cute" id="smaller">`
+        } else if (funnimages === 5) {
+            document.getElementById('luck1000000').innerHTML = `<img src="images/fdac5e13-543c-4043-b123-9bd4cc937aab.jpg" alt="cute" id="smaller">`
+        }
     }
 };
 
