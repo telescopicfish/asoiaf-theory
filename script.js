@@ -4089,7 +4089,7 @@ const createTheory = () => {
         document.getElementById('theory').innerHTML = `Ser Robert Strong has ${getRandomCharacter()}'s head`;
     } else if (conditionNumber === 74) {
         document.getElementById('theory').innerHTML = `${getRandomCharacter()} is the Night's King`;
-    } else if (conditionNumber === 74) {
+    } else if (conditionNumber === 75) {
         document.getElementById('theory').innerHTML = `${getRandomCharacter()} and ${getRandomCharacter()} are sibling`;
     }
 
