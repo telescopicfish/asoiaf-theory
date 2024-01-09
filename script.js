@@ -4,6 +4,9 @@ const characters = [
     "Gared",
     "Ser Waymar Royce",
     "Will",
+    "Dumb and Dumber",
+    "David Benioff",
+    "Daniel Brett Weiss",
     "Lord Commander Jeor Mormont, The Old Bear",
     "Prince Brandon Stark, Bran",
     "King Robb Stark",
@@ -24,6 +27,7 @@ const characters = [
     "King Brandon Stark, The Builder",
     "Princess Arya Stark",
     "Princess Sansa Stark",
+    "Preston Jacobs",
     "Benjen Stark, brother of Eddard",
     "Maester Luwin",
     "Lord Jon Arryn",
@@ -174,6 +178,7 @@ const characters = [
     "Lord Jason Mallister",
     "Patrek Mallister",
     "Lady Shella Whent",
+    "Lady Stoneheart",
     "Lord Walder Frey, The Late Lord Frey",
     "Lady Perra Royce/Frey",
     "Lady Cyrenna Swann/Frey",
@@ -3088,25 +3093,6 @@ const characters = [
     "Alt Schwift X"
 ];
 
-const conditions = [
-    "is secretly",
-    "is secretly a",
-    "=",
-    "is",
-    "is Azor Ahai",
-    "is in love with",
-    "parents are",
-    "is secretly the child of",
-    "is a bastard born to",
-    "was",
-    "killed",
-    "is going to kill",
-    "poisoned",
-    "is a horse",
-    "is the",
-    "reborn"
-];
-
 const greathouses = [
     "Targaryen",
     "Stark",
@@ -3933,10 +3919,84 @@ const mentalDisorders = [
 `Gender dysphoria`
 ]
 
+//array to store logs
+let logs = [];
+
+// override console.log to log and capture logs
+function captureLogs(includeDetails = false) {
+     const originalLog = console.log;
+
+    console.log = function (message) {
+        
+        if (logs.length === 0) {
+            // add timestamp at the beginning of the logs array
+            logs.push(
+                 `THE ASOIAF THEORY GENERATOR RESULTS\n`
+                 );
+                }
+        // try to access the stackdetails for more info (optional)
+        let logDetails = "";
+        if (includeDetails) {
+               try {
+                    throw new Error();
+               } catch (e) {
+                    const stackLines = e.stack.split("\n");
+
+                    if (stackLines.length >= 3) {
+                         const logLocation = stackLines[2].trim();
+                         logDetails = logLocation;
+                    }
+               }
+          }
+
+          // add log message with optional file and line number details as new line
+          //logs.push(`${message}\n   ${logDetails ? logDetails  : ""}`);
+          // test formatting
+          logs.push(
+               `${message.toString().padEnd(60, ".")}${
+                    logDetails ? logDetails.padStart(60) : ""
+               }`
+          );
+
+          originalLog.apply(console, arguments);
+     };
+}
+
+function downloadLogs() {
+     const logsString = logs.join("\n"); // join logs with newlines
+
+     // create a blob
+     const blob = new Blob([logsString], { type: "text/plain" });
+
+     // create a link
+     const link = document.createElement("a");
+     link.href = window.URL.createObjectURL(blob);
+     link.download = "ASOIAF-THEORY-LOGS.txt"; // default filename
+     document.body.appendChild(link);
+
+     link.click();
+
+     // clean up => remove the link after usage
+     document.body.removeChild(link);
+}
+
+//USAGE EXAMPLE
+// call captureLogs to start capturing console.log from here
+//captureLogs(); // without details
+captureLogs(true); // WITH details (filename/lines if accessible)
+
+// button to trigger download - or call downloadLogs()
+const downloadButton = document.createElement("button");
+downloadButton.textContent = "Download Logs";
+downloadButton.id = 'position2'
+downloadButton.addEventListener("click", downloadLogs);
+document.body.appendChild(downloadButton);
+
+
 const createTheory = () => {
     document.getElementById('luck1000000').innerHTML = '';
     document.getElementById('theory').innerHTML = "";
-    const conditionNumber = Math.floor(Math.random() * 75) + 1;
+    const conditionNumber = Math.floor(Math.random() * 82) + 1;
     const conditionNumbers = Math.floor(Math.random() * 1000000) + 1;
     
     const getRandomCharacter = () => characters[Math.floor(Math.random() * characters.length)];
@@ -4082,16 +4142,31 @@ const createTheory = () => {
     } else if (conditionNumber === 70) {
         document.getElementById('theory').innerHTML = `Un${getRandomCharacter()}`;
     } else if (conditionNumber === 71) {
-        document.getElementById('theory').innerHTML = `${getRandomCharacter()}=${getRandomCharacter()}=${getRandomCharacter()}=${getRandomCharacter()}=${getRandomCharacter()}=${getRandomCharacter()}`;
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} = ${getRandomCharacter()} = ${getRandomCharacter()} = ${getRandomCharacter()} = ${getRandomCharacter()} = ${getRandomCharacter()}`;
     } else if (conditionNumber === 72) {
         document.getElementById('theory').innerHTML = `${getRandomCharacter()} is a merling`;
     } else if (conditionNumber === 73) {
         document.getElementById('theory').innerHTML = `Ser Robert Strong has ${getRandomCharacter()}'s head`;
     } else if (conditionNumber === 74) {
-        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is the Night's King`;
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} was the Night's King`;
     } else if (conditionNumber === 75) {
         document.getElementById('theory').innerHTML = `${getRandomCharacter()} and ${getRandomCharacter()} are sibling`;
+    } else if (conditionNumber === 76) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} has the Horn of Winter`;
+    } else if (conditionNumber === 77) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()}, ${getRandomCharacter()}, and ${getRandomCharacter()} are the Three Heads of the Dragon`;
+    } else if (conditionNumber === 78) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} caused the War of the Five Kings`;
+    } else if (conditionNumber === 79) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is the younger more beautiful queen`;
+    } else if (conditionNumber === 80) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is the stallion who will mount the world`;
+    } else if (conditionNumber === 81) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is a timetravelling fetus`;
+    } else if (conditionNumber === 82) {
+        document.getElementById('theory').innerHTML = `${getRandomCharacter()} is the valonqar`;
     }
+
 
     if (conditionNumbers === 1000000) {
         document.getElementById('theory').innerHTML = `You've suffered enough :/ Take a break.`;
@@ -4108,6 +4183,7 @@ const createTheory = () => {
             document.getElementById('luck1000000').innerHTML = `<img src="images/fdac5e13-543c-4043-b123-9bd4cc937aab.jpg" alt="cute" id="smaller">`
         }
     }
+    console.log(document.getElementById('theory').innerHTML);
 };
 
 createTheory();
