@@ -3998,6 +3998,7 @@ const createTheory = () => {
     document.getElementById('theory').innerHTML = "";
     const conditionNumber = Math.floor(Math.random() * 82) + 1;
     const conditionNumbers = Math.floor(Math.random() * 1000000) + 1;
+    const conditionNumberss = Math.floor(Math.random() * 10000000) + 1;
     
     const getRandomCharacter = () => characters[Math.floor(Math.random() * characters.length)];
 
@@ -4183,6 +4184,12 @@ const createTheory = () => {
             document.getElementById('luck1000000').innerHTML = `<img src="images/fdac5e13-543c-4043-b123-9bd4cc937aab.jpg" alt="cute" id="smaller">`
         }
     }
+
+    if (conditionNumberss === 10000000) {
+        document.getElementById('theory').innerHTML = `I LOVE YOU DAENERYS :3`;
+        document.getElementById('luck1000000').innerHTML = `<img src="images/download.jpg" alt="cute" id="smaller">`
+    }
+
     console.log(document.getElementById('theory').innerHTML);
 };
 
